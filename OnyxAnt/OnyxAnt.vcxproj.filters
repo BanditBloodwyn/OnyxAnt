@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="FrameWork\Connection\SPI\OnyxSPI.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot\Units\Leg\Base\LegBase.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot\Robot\OnyxAnt\OnyxAnt.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot\Units\Leg\OnyxLeg\OnyxLeg.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot\Robot\Base\RobotBase.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header">
+      <UniqueIdentifier>{cc18fbac-2e39-4586-8f79-491b1283bf50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{cd2e2c54-8585-49b1-89dd-c106ba0ac5f0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FrameWork\Connection\SPI\SPIBase.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameWork\Connection\SPI\OnyxSPI.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot\Units\Leg\Base\LegBase.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot\Robot\OnyxAnt\OnyxAnt.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot\Units\Leg\OnyxLeg\OnyxLeg.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot\Robot\Base\RobotBase.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

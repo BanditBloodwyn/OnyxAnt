@@ -90,7 +90,14 @@
     <ClInclude Include="Robot\Units\Leg\Base\LegBase.h" />
     <ClInclude Include="Robot\Units\Leg\OnyxLeg\OnyxLeg.h" />
   </ItemGroup>
-  <ItemDefinitionGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Link>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Kevin\source\repos\OnyxAnt\OnyxAnt\Robot\Robot;C:\Users\Kevin\source\repos\OnyxAnt\OnyxAnt\Robot\Units;C:\Users\Kevin\source\repos\OnyxAnt\OnyxAnt\FrameWork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
 </Project>

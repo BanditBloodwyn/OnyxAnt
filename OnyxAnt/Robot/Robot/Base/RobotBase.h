@@ -12,6 +12,7 @@
 #include <iostream>
 
 #include <Connection/SPI/SPIBase.h>
+#include <STM/STM.h>
 
 
 enum ROBOTTYPE

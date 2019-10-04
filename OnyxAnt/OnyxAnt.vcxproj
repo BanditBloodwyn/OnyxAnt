@@ -76,6 +76,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="FrameWork\Connection\SPI\OnyxSPI.cpp" />
+    <ClCompile Include="FrameWork\STM\STM.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Robot\Robot\Base\RobotBase.cpp" />
     <ClCompile Include="Robot\Robot\OnyxAnt\OnyxAnt.cpp" />
@@ -85,6 +86,7 @@
   <ItemGroup>
     <ClInclude Include="FrameWork\Connection\SPI\OnyxSPI.h" />
     <ClInclude Include="FrameWork\Connection\SPI\SPIBase.h" />
+    <ClInclude Include="FrameWork\STM\STM.h" />
     <ClInclude Include="Robot\Robot\Base\RobotBase.h" />
     <ClInclude Include="Robot\Robot\OnyxAnt\OnyxAnt.h" />
     <ClInclude Include="Robot\Units\Leg\Base\LegBase.h" />

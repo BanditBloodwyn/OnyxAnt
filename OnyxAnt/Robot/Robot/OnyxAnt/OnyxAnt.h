@@ -11,6 +11,7 @@
 
 #include <Base/RobotBase.h>
 #include <Leg/OnyxLeg/OnyxLeg.h>
+#include <Connection/SPI/OnyxSPI.h>
 
 
 class OnyxAnt : public RobotBase
@@ -33,9 +34,10 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
-	ROBOTSTATUS			Start();
-	void				Init();
-
+	void				Start();
+	void				Cycle();
+	bool				Init();
+	void				Shutdown();
 ////////////////////////////////////////////
 // attributes
 ////////////////////////////////////////////
@@ -46,4 +48,6 @@ protected:
 	OnyxLeg*			m_oLegMR;
 	OnyxLeg*			m_oLegBL;
 	OnyxLeg*			m_oLegBR;
+
+	OnyxSPI				m_oSPIInterface;
 };

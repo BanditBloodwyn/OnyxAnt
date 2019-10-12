@@ -30,6 +30,7 @@ enum ROBOTSTATUS
 	, STATUS_BOOTING
 	, STATUS_IDLE
 	, STATUS_ERROR
+	, STATUS_SHUTDOWN
 };
 
 class RobotBase
@@ -52,9 +53,10 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
-	virtual ROBOTSTATUS			Start() = 0;
-	virtual void				Init() = 0;
-
+	virtual void				Start() = 0;
+	virtual void				Cycle() = 0;
+	virtual bool				Init() = 0;
+	virtual void				Shutdown() = 0;
 
 ////////////////////////////////////////////
 // attributes

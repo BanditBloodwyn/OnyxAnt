@@ -9,8 +9,10 @@ OnyxSPI::~OnyxSPI()
 {
 }
 
-void OnyxSPI::spiInit()
+bool OnyxSPI::spiInit()
 {
+	std::cout << "OnyxSPI initialized.\n";
+	return true;
 }
 
 

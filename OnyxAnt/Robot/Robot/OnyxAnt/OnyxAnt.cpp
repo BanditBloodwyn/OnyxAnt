@@ -14,22 +14,48 @@ OnyxAnt::OnyxAnt()
 	m_oLegML = new OnyxLeg();
 	m_oLegBL = new OnyxLeg();
 	m_oLegBL = new OnyxLeg();
-
-	Init();
 }
 
 OnyxAnt::~OnyxAnt()
 {
 }
 
-void OnyxAnt::Init()
+bool OnyxAnt::Init()
+{
+	if (!m_oSPIInterface.spiInit())
+	{
+		std::cout << "OnyxAnt::Init failed!\n";
+		return false;
+	}
+
+	m_eStatus = STATUS_IDLE;
+
+	return true;
+}
+
+void OnyxAnt::Start()
+{
+	if (!Init())
+	{
+		return;
+	}
+
+	std::cout << "Hello, I'm the OnyxAnt! :)\n";
+
+	while (m_eStatus != STATUS_ERROR && m_eStatus != STATUS_SHUTDOWN)
+	{
+		Cycle();
+	}
+
+	Shutdown();
+}
+
+void OnyxAnt::Cycle()
 {
 	m_eStatus = STATUS_IDLE;
 }
 
-ROBOTSTATUS OnyxAnt::Start()
+void OnyxAnt::Shutdown()
 {
-	std::cout << "Hello, I'm the OnyxAnt! :)\n";
 
-	return m_eStatus;
 }

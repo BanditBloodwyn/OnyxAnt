@@ -29,7 +29,7 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
-	virtual void		spiInit() = 0;					// Initialize SPI interface
+	virtual bool		spiInit() = 0;					// Initialize SPI interface
 	virtual int			spiTranceive(int nData) = 0;	// Tranceive data (INPUTS: data to send ; OUTPUTS: data to receive)
 
 

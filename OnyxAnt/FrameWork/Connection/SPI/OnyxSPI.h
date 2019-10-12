@@ -34,7 +34,7 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
-	void				spiInit();
+	bool				spiInit();
 	int					spiTranceive(int nData);
 
 

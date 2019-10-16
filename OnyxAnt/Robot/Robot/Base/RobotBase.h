@@ -10,9 +10,16 @@
 
 
 #include <iostream>
+#include <map>
+#include <cassert>
 
 #include <Connection/SPI/SPIBase.h>
 #include <STM/STM.h>
+
+
+#define STM_DECLARE(p)		Stm* m_pStm_##p
+#define STM_CREATE(p)		m_pStm_##p = CreateStm(#p)
+#define STM(p)				FindStm(#p)
 
 
 enum ROBOTTYPE
@@ -53,10 +60,10 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
-	virtual void				Start() = 0;
-	virtual void				Cycle() = 0;
-	virtual bool				Init() = 0;
-	virtual void				Shutdown() = 0;
+	virtual STMRESULT			ExecStart() = 0;
+	virtual STMRESULT			ExecCycle() = 0;
+	virtual STMRESULT			ExecInit() = 0;
+	virtual STMRESULT			ExecShutdown() = 0;
 
 ////////////////////////////////////////////
 // attributes
@@ -64,4 +71,14 @@ public:
 protected:
 	ROBOTTYPE			m_eRobotType;
 	ROBOTSTATUS			m_eStatus;
+
+////////////////////////////////////////////
+// STM
+////////////////////////////////////////////
+public:
+	Stm*				CreateStm(const string& sStmName);
+	Stm*				FindStm(const string& sStmName);
+
+protected:
+	map<string, Stm*>	m_oStmMap;
 };

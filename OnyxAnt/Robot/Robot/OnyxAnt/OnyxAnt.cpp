@@ -5,6 +5,11 @@ OnyxAnt::OnyxAnt()
 {
 	std::cout << "Booting......\n";
 
+	STM_CREATE(ExecCycle);
+	STM_CREATE(ExecShutdown);
+	STM_CREATE(ExecMoveLegsToSleepPosition);
+
+
 	m_eRobotType = TYPE_6_LEGS;
 	m_eStatus = STATUS_BOOTING;
 
@@ -20,42 +25,60 @@ OnyxAnt::~OnyxAnt()
 {
 }
 
-bool OnyxAnt::Init()
+STMRESULT OnyxAnt::ExecInit()
 {
 	if (!m_oSPIInterface.spiInit())
 	{
 		std::cout << "OnyxAnt::Init failed!\n";
-		return false;
+		return S_ERROR;
 	}
 
 	m_eStatus = STATUS_IDLE;
 
-	return true;
+	return S_READY;
 }
 
-void OnyxAnt::Start()
+STMRESULT OnyxAnt::ExecStart()
 {
-	if (!Init())
+	enum
 	{
-		return;
+		sSTART = S_START,
+		sINIT,
+		sCYCLE,
+		sSHUTDOWN,
+		sEND,
+		sERROR
+	};
+
+	if (!ExecInit())
+	{
+		return S_ERROR;
 	}
 
 	std::cout << "Hello, I'm the OnyxAnt! :)\n";
 
-	while (m_eStatus != STATUS_ERROR && m_eStatus != STATUS_SHUTDOWN)
+	while (ExecCycle() != S_ERROR || ExecCycle() != S_READY)
 	{
-		Cycle();
 	}
 
-	Shutdown();
+	ExecShutdown();
+
+	return S_READY;
 }
 
-void OnyxAnt::Cycle()
+STMRESULT OnyxAnt::ExecCycle()
 {
 	m_eStatus = STATUS_IDLE;
+
+	return S_BUSY;
 }
 
-void OnyxAnt::Shutdown()
+STMRESULT OnyxAnt::ExecShutdown()
 {
+	return ExecMoveLegsToSleepPosition();
+}
 
+STMRESULT OnyxAnt::ExecMoveLegsToSleepPosition()
+{
+	return S_READY;
 }

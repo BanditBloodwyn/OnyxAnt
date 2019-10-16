@@ -34,10 +34,14 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
-	void				Start();
-	void				Cycle();
-	bool				Init();
-	void				Shutdown();
+	STMRESULT			ExecStart();
+	STMRESULT			ExecCycle();
+	STMRESULT			ExecInit();
+	STMRESULT			ExecShutdown();
+
+private:
+	STMRESULT			ExecMoveLegsToSleepPosition();
+
 ////////////////////////////////////////////
 // attributes
 ////////////////////////////////////////////
@@ -50,4 +54,12 @@ protected:
 	OnyxLeg*			m_oLegBR;
 
 	OnyxSPI				m_oSPIInterface;
+
+////////////////////////////////////////////
+// STM
+////////////////////////////////////////////
+protected:
+	STM_DECLARE(ExecCycle);
+	STM_DECLARE(ExecShutdown);
+	STM_DECLARE(ExecMoveLegsToSleepPosition);
 };

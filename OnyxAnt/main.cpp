@@ -16,6 +16,6 @@ int main()
 {
 	OnyxAnt		oRobot;
 
-	oRobot.Start();
+	oRobot.ExecStart();
     return 0;
 }

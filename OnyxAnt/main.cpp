@@ -16,6 +16,8 @@ int main()
 {
 	OnyxAnt		oRobot;
 
-	oRobot.ExecStart();
+	while (oRobot.ExecStart() == S_BUSY)
+	{ }
+
     return 0;
 }

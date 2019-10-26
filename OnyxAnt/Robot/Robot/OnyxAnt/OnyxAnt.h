@@ -59,6 +59,7 @@ protected:
 // STM
 ////////////////////////////////////////////
 protected:
+	STM_DECLARE(ExecStart);
 	STM_DECLARE(ExecCycle);
 	STM_DECLARE(ExecShutdown);
 	STM_DECLARE(ExecMoveLegsToSleepPosition);

@@ -22,6 +22,9 @@
     <ClCompile Include="FrameWork\STM\STM.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="FrameWork\Connection\SPI\SPIVar.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
@@ -51,6 +54,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="FrameWork\STM\STM.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameWork\Connection\SPI\SPIVar.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

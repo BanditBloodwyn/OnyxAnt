@@ -25,6 +25,9 @@
     <ClCompile Include="FrameWork\Connection\SPI\SPIVar.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Robot\Units\Base\UnitBase.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
@@ -57,6 +60,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="FrameWork\Connection\SPI\SPIVar.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot\Units\Base\UnitBase.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

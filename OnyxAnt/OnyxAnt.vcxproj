@@ -81,6 +81,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Robot\Robot\Base\RobotBase.cpp" />
     <ClCompile Include="Robot\Robot\OnyxAnt\OnyxAnt.cpp" />
+    <ClCompile Include="Robot\Units\Base\UnitBase.cpp" />
     <ClCompile Include="Robot\Units\Leg\Base\LegBase.cpp" />
     <ClCompile Include="Robot\Units\Leg\OnyxLeg\OnyxLeg.cpp" />
   </ItemGroup>
@@ -91,6 +92,7 @@
     <ClInclude Include="FrameWork\STM\STM.h" />
     <ClInclude Include="Robot\Robot\Base\RobotBase.h" />
     <ClInclude Include="Robot\Robot\OnyxAnt\OnyxAnt.h" />
+    <ClInclude Include="Robot\Units\Base\UnitBase.h" />
     <ClInclude Include="Robot\Units\Leg\Base\LegBase.h" />
     <ClInclude Include="Robot\Units\Leg\OnyxLeg\OnyxLeg.h" />
   </ItemGroup>

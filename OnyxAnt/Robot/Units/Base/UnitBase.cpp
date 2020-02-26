@@ -1,25 +1,27 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// Name:		RobotBase.cpp
+// Name:		UnitBase.cpp
 // Project:		OnyxAnt
 // Purpose:		
 //
-// Created:		01.10.2019
+// Created:		26.02.2020
 // Author:		Kevin Eichenberg
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "RobotBase.h"
+#include "UnitBase.h"
 
 
-RobotBase::RobotBase()
+UnitBase::UnitBase()
 {
+
 }
 
-RobotBase::~RobotBase()
+UnitBase::~UnitBase()
 {
+
 }
 
-Stm* RobotBase::CreateStm(const string& sStmName)
+Stm* UnitBase::CreateStm(const string& sStmName)
 {
 	assert(m_oStmMap.find(sStmName) == m_oStmMap.end());
 
@@ -29,7 +31,7 @@ Stm* RobotBase::CreateStm(const string& sStmName)
 	return pStm;
 }
 
-Stm* RobotBase::FindStm(const string& sStmName)
+Stm* UnitBase::FindStm(const string& sStmName)
 {
 	auto it = m_oStmMap.find(sStmName);
 

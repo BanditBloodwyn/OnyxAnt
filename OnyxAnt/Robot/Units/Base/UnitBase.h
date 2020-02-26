@@ -1,18 +1,22 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// Name:		LegBase.h
+// Name:		UnitBase.h
 // Project:		OnyxAnt
 // Purpose:		
 //
-// Created:		01.10.2019
+// Created:		26.02.2020
 // Author:		Kevin Eichenberg
 //////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma once
 
 
-#include <Base/UnitBase.h>
+#include <iostream>
+#include <map>
+#include <cassert>
+
+#include <STM/STM.h>
 
 
-class LegBase : public UnitBase
+class UnitBase
 {
 ////////////////////////////////////////////
 // structures
@@ -24,8 +28,8 @@ public:
 // construction
 ////////////////////////////////////////////
 public:
-	LegBase() {}
-	~LegBase() {}
+	UnitBase();
+	~UnitBase();
 
 
 ////////////////////////////////////////////
@@ -35,8 +39,13 @@ public:
 
 
 ////////////////////////////////////////////
-// attributes
+// STM
 ////////////////////////////////////////////
+public:
+	Stm* CreateStm(const string& sStmName);
+	Stm* FindStm(const string& sStmName);
+
 protected:
-	int				m_nJointCount;
+	map<string, Stm*>	m_oStmMap;
+
 };

@@ -29,6 +29,7 @@ public:
 ////////////////////////////////////////////
 public:
 	UnitBase();
+	UnitBase(string sName);
 	~UnitBase();
 
 
@@ -36,16 +37,19 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
+	virtual void	Control();
 
 
 ////////////////////////////////////////////
 // STM
 ////////////////////////////////////////////
 public:
-	Stm* CreateStm(const string& sStmName);
-	Stm* FindStm(const string& sStmName);
+	Stm*			CreateStm(const string& sStmName);
+	Stm*			FindStm(const string& sStmName);
 
 protected:
 	map<string, Stm*>	m_oStmMap;
+
+	string				m_sUnitName;
 
 };

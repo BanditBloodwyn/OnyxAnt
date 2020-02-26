@@ -25,6 +25,7 @@ public:
 ////////////////////////////////////////////
 public:
 	OnyxLeg();
+	OnyxLeg(string sName);
 	~OnyxLeg();
 
 
@@ -32,6 +33,8 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
+	void			Control();
+
 	void			MoveJoint(int nJointNumber, int nDegrees);		// move single joint
 	void			MoveLegToCoordinates(int nX, int nY, int nZ);	// move leg
 

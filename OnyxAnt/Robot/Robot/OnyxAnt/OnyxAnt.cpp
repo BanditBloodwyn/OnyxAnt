@@ -24,12 +24,12 @@ OnyxAnt::OnyxAnt()
 	m_eRobotType = TYPE_6_LEGS;
 	m_eStatus = STATUS_BOOTING;
 
-	m_oLegFL = new OnyxLeg();
-	m_oLegFR = new OnyxLeg();
-	m_oLegML = new OnyxLeg();
-	m_oLegML = new OnyxLeg();
-	m_oLegBL = new OnyxLeg();
-	m_oLegBL = new OnyxLeg();
+	m_oLegFL = new OnyxLeg("LegFrontLeft");
+	m_oLegFR = new OnyxLeg("LegFrontRight");
+	m_oLegML = new OnyxLeg("LegMiddleLeft");
+	m_oLegMR = new OnyxLeg("LegMiddleRight");
+	m_oLegBL = new OnyxLeg("LegBackLeft");
+	m_oLegBR = new OnyxLeg("LegBackRight");
 }
 
 OnyxAnt::~OnyxAnt()

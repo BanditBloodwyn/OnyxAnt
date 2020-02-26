@@ -13,11 +13,22 @@
 
 OnyxLeg::OnyxLeg()
 {
+
+}
+
+OnyxLeg::OnyxLeg(string sName) : LegBase(sName)
+{
 	m_nJointCount = 4;
 }
 
 OnyxLeg::~OnyxLeg()
 {
+
+}
+
+void OnyxLeg::Control()
+{
+
 }
 
 void OnyxLeg::MoveJoint(int nJointNumber, int nDegrees)

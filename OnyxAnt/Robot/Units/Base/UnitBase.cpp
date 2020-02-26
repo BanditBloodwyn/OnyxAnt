@@ -16,7 +16,17 @@ UnitBase::UnitBase()
 
 }
 
+UnitBase::UnitBase(string sName)
+{
+	m_sUnitName = sName;
+}
+
 UnitBase::~UnitBase()
+{
+
+}
+
+void UnitBase::Control()
 {
 
 }

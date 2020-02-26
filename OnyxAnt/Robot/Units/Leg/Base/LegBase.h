@@ -24,8 +24,9 @@ public:
 // construction
 ////////////////////////////////////////////
 public:
-	LegBase() {}
-	~LegBase() {}
+	LegBase();
+	LegBase(string sName);
+	~LegBase();
 
 
 ////////////////////////////////////////////

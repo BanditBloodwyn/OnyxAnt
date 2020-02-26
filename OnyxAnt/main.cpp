@@ -19,5 +19,7 @@ int main()
 	while (oRobot.ExecStart() == S_BUSY)
 	{ }
 
+	std::cout << "Bye, I'm dead! :(\n";
+
     return 0;
 }

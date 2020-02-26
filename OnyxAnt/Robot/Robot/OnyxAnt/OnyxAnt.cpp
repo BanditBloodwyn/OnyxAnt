@@ -60,31 +60,27 @@ STMRESULT OnyxAnt::ExecStart()
 	case sSTART:
 	{
 		std::cout << "Hello, I'm the OnyxAnt! :)\n";
-		pStm->ChangeWorkState(S_READY, sINIT);
-		break;
+		return pStm->ChangeWorkState(S_READY, sINIT);
 	}
 	case sINIT:
 	{
-		pStm->ChangeWorkState(ExecInit(), sCYCLE);
-		break;
+		return pStm->ChangeWorkState(ExecInit(), sCYCLE);
 	}
 	case sCYCLE:
 	{
-		pStm->ChangeWorkState(ExecCycle(), sSHUTDOWN);
-		break;
+		return pStm->ChangeWorkState(ExecCycle(), sSHUTDOWN);
 	}
 	case sSHUTDOWN:
 	{
-		pStm->ChangeWorkState(ExecShutdown(), sSHUTDOWN);
-		break;
+		return pStm->ChangeWorkState(ExecShutdown(), sEND);
 	}
 	case sEND:
 	{
-
+		return pStm->ChangeWorkState(S_READY);
 	}
 	case sERROR:
 	{
-
+		return pStm->ChangeWorkState(S_ERROR);
 	}
 	}
 
@@ -95,11 +91,11 @@ STMRESULT OnyxAnt::ExecCycle()
 {
 	m_eStatus = STATUS_IDLE;
 
-	//int x;
-	//cin >> x;
+	int x;
+	cin >> x;
 
-	//if (x == 0)
-	//	m_eStatus = STATUS_SHUTDOWN;
+	if (x == 0)
+		return S_READY;
 
 	return S_BUSY;
 }

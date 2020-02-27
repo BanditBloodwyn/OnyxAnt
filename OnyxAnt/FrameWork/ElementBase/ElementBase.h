@@ -1,9 +1,9 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// Name:		UnitBase.h
+// Name:		ElementBase.h
 // Project:		OnyxAnt
 // Purpose:		
 //
-// Created:		26.02.2020
+// Created:		27.02.2020
 // Author:		Kevin Eichenberg
 //////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma once
@@ -14,10 +14,9 @@
 #include <cassert>
 
 #include <STM/STM.h>
-#include <ElementBase/ElementBase.h>
 
 
-class UnitBase : public ElementBase
+class ElementBase
 {
 ////////////////////////////////////////////
 // structures
@@ -29,21 +28,28 @@ public:
 // construction
 ////////////////////////////////////////////
 public:
-	UnitBase();
-	UnitBase(string sName);
-	~UnitBase();
+	ElementBase();
+	ElementBase(string sName);
+	~ElementBase();
 
 
 ////////////////////////////////////////////
 // methods
 ////////////////////////////////////////////
 public:
+	virtual void	Control();
 
 
 ////////////////////////////////////////////
 // STM
 ////////////////////////////////////////////
 public:
+	Stm*			CreateStm(const string& sStmName);
+	Stm*			FindStm(const string& sStmName);
 
 protected:
+	map<string, Stm*>	m_oStmMap;
+
+	string				m_sUnitName;
+
 };

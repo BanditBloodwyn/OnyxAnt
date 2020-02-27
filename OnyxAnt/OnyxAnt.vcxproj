@@ -77,6 +77,7 @@
   <ItemGroup>
     <ClCompile Include="FrameWork\Connection\SPI\OnyxSPI.cpp" />
     <ClCompile Include="FrameWork\Connection\SPI\SPIVar.cpp" />
+    <ClCompile Include="FrameWork\ElementBase\ElementBase.cpp" />
     <ClCompile Include="FrameWork\STM\STM.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Robot\Robot\Base\RobotBase.cpp" />
@@ -89,6 +90,7 @@
     <ClInclude Include="FrameWork\Connection\SPI\OnyxSPI.h" />
     <ClInclude Include="FrameWork\Connection\SPI\SPIBase.h" />
     <ClInclude Include="FrameWork\Connection\SPI\SPIVar.h" />
+    <ClInclude Include="FrameWork\ElementBase\ElementBase.h" />
     <ClInclude Include="FrameWork\STM\STM.h" />
     <ClInclude Include="Robot\Robot\Base\RobotBase.h" />
     <ClInclude Include="Robot\Robot\OnyxAnt\OnyxAnt.h" />

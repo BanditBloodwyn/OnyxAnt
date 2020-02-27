@@ -1,27 +1,24 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// Name:		UnitBase.cpp
+// Name:		KinematicsModule.cpp
 // Project:		OnyxAnt
 // Purpose:		
 //
-// Created:		26.02.2020
+// Created:		27.02.2020
 // Author:		Kevin Eichenberg
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "UnitBase.h"
+#include "KinematicsModule.h"
 
 
-UnitBase::UnitBase()
+KinematicsModule::KinematicsModule()
 {
-
 }
 
-UnitBase::UnitBase(string sName) : ElementBase(sName)
+KinematicsModule::KinematicsModule(string sName) : ModuleBase(sName)
 {
-
 }
 
-UnitBase::~UnitBase()
+KinematicsModule::~KinematicsModule()
 {
-
 }

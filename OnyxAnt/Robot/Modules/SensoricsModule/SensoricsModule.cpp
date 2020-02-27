@@ -1,27 +1,24 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// Name:		UnitBase.cpp
+// Name:		SensoricsModule.cpp
 // Project:		OnyxAnt
 // Purpose:		
 //
-// Created:		26.02.2020
+// Created:		27.02.2020
 // Author:		Kevin Eichenberg
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "UnitBase.h"
+#include "SensoricsModule.h"
 
 
-UnitBase::UnitBase()
+SensoricsModule::SensoricsModule()
 {
-
 }
 
-UnitBase::UnitBase(string sName) : ElementBase(sName)
+SensoricsModule::SensoricsModule(string sName) : ModuleBase(sName)
 {
-
 }
 
-UnitBase::~UnitBase()
+SensoricsModule::~SensoricsModule()
 {
-
 }

@@ -31,6 +31,15 @@
     <ClCompile Include="FrameWork\ElementBase\ElementBase.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Robot\Modules\Base\ModuleBase.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot\Modules\KinematicsModule\KinematicsModule.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot\Modules\SensoricsModule\SensoricsModule.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
@@ -69,6 +78,15 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="FrameWork\ElementBase\ElementBase.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot\Modules\Base\ModuleBase.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot\Modules\KinematicsModule\KinematicsModule.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Robot\Modules\SensoricsModule\SensoricsModule.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

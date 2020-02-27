@@ -1,27 +1,24 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// Name:		UnitBase.cpp
+// Name:		ModuleBase.cpp
 // Project:		OnyxAnt
 // Purpose:		
 //
-// Created:		26.02.2020
+// Created:		27.02.2020
 // Author:		Kevin Eichenberg
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "UnitBase.h"
+#include "ModuleBase.h"
 
 
-UnitBase::UnitBase()
+ModuleBase::ModuleBase()
 {
-
 }
 
-UnitBase::UnitBase(string sName) : ElementBase(sName)
+ModuleBase::ModuleBase(string sName) : ElementBase(sName)
 {
-
 }
 
-UnitBase::~UnitBase()
+ModuleBase::~ModuleBase()
 {
-
 }

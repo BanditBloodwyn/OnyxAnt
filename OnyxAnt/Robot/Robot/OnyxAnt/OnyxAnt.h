@@ -10,7 +10,8 @@
 
 
 #include <Base/RobotBase.h>
-#include <Leg/OnyxLeg/OnyxLeg.h>
+#include <KinematicsModule/KinematicsModule.h>
+#include <SensoricsModule/SensoricsModule.h>
 #include <Connection/SPI/OnyxSPI.h>
 
 
@@ -46,13 +47,8 @@ private:
 // attributes
 ////////////////////////////////////////////
 protected:
-	OnyxLeg*			m_oLegFL;
-	OnyxLeg*			m_oLegFR;
-	OnyxLeg*			m_oLegML;
-	OnyxLeg*			m_oLegMR;
-	OnyxLeg*			m_oLegBL;
-	OnyxLeg*			m_oLegBR;
-
+	KinematicsModule*	m_pKinematicsModule;
+	SensoricsModule*	m_pSensoricsModule;
 	OnyxSPI				m_oSPIInterface;
 
 ////////////////////////////////////////////

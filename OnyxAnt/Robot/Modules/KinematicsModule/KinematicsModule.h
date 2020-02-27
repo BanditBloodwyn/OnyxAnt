@@ -10,6 +10,7 @@
 
 
 #include <Base/ModuleBase.h>
+#include <Leg/OnyxLeg/OnyxLeg.h>
 
 
 class KinematicsModule : public ModuleBase
@@ -39,4 +40,11 @@ public:
 // attributes
 ////////////////////////////////////////////
 protected:
+	OnyxLeg* m_oLegFL;
+	OnyxLeg* m_oLegFR;
+	OnyxLeg* m_oLegML;
+	OnyxLeg* m_oLegMR;
+	OnyxLeg* m_oLegBL;
+	OnyxLeg* m_oLegBR;
+
 };

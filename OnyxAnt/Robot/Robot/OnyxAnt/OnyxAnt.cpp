@@ -20,16 +20,11 @@ OnyxAnt::OnyxAnt()
 	STM_CREATE(ExecShutdown);
 	STM_CREATE(ExecMoveLegsToSleepPosition);
 
+	m_pKinematicsModule = new KinematicsModule("KinematicsModule");
+	m_pSensoricsModule = new SensoricsModule("SensoricsModule");
 
 	m_eRobotType = TYPE_6_LEGS;
 	m_eStatus = STATUS_BOOTING;
-
-	m_oLegFL = new OnyxLeg("LegFrontLeft");
-	m_oLegFR = new OnyxLeg("LegFrontRight");
-	m_oLegML = new OnyxLeg("LegMiddleLeft");
-	m_oLegMR = new OnyxLeg("LegMiddleRight");
-	m_oLegBL = new OnyxLeg("LegBackLeft");
-	m_oLegBR = new OnyxLeg("LegBackRight");
 }
 
 OnyxAnt::~OnyxAnt()

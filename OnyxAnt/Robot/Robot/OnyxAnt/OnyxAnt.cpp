@@ -115,3 +115,23 @@ STMRESULT OnyxAnt::ExecMoveLegsToSleepPosition()
 {
 	return S_READY;
 }
+
+STMRESULT OnyxAnt::CollectSensorData()
+{
+	return S_READY;
+}
+
+STMRESULT OnyxAnt::ProcessSensorData()
+{
+	return S_READY;
+}
+
+STMRESULT OnyxAnt::SelfDiagnosis()
+{
+	return S_READY;
+}
+
+STMRESULT OnyxAnt::SendMoveCommands()
+{
+	return S_READY;
+}

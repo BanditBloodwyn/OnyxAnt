@@ -43,6 +43,12 @@ public:
 private:
 	STMRESULT			ExecMoveLegsToSleepPosition();
 
+	STMRESULT			CollectSensorData();
+	STMRESULT			ProcessSensorData();
+	STMRESULT			SelfDiagnosis();
+	STMRESULT			SendMoveCommands();
+
+
 ////////////////////////////////////////////
 // attributes
 ////////////////////////////////////////////

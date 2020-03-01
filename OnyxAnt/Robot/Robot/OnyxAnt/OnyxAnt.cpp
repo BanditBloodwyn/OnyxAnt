@@ -56,8 +56,6 @@ STMRESULT OnyxAnt::ExecStart()
 		sERROR
 	};
 
-	STMRESULT nResult = S_BUSY;
-
 	Stm* pStm = STM(ExecStart);
 
 	switch (pStm->GetWorkState())
@@ -82,25 +80,60 @@ STMRESULT OnyxAnt::ExecStart()
 	case sEND:
 	{
 		return pStm->ChangeWorkState(S_READY);
+		std::cout << "OnyxAnt::ExecStart : End\n";
 	}
 	case sERROR:
 	{
+		std::cout << "OnyxAnt::ExecStart : Error!\n";
 		return pStm->ChangeWorkState(S_ERROR);
 	}
 	}
 
-	return nResult;
+	return S_BUSY;
 }
 
 STMRESULT OnyxAnt::ExecCycle()
 {
-	m_eStatus = STATUS_IDLE;
+	enum
+	{
+		sSTART = S_START,
+		sTESTCYCLE,
+		sEND,
+		sERROR
+	};
 
-	int x;
-	cin >> x;
+	Stm* pStm = STM(ExecCycle);
 
-	if (x == 0)
-		return S_READY;
+	switch (pStm->GetWorkState())
+	{
+	case sSTART:
+	{
+		std::cout << "OnyxAnt::ExecCycle : Start\n";		
+		return pStm->ChangeWorkState(S_READY, sTESTCYCLE);
+	}
+	case sTESTCYCLE:
+	{
+		int x;
+		cin >> x;
+
+		if (x == 0)
+			return pStm->ChangeWorkState(S_READY, sEND);
+		if (x == 5)
+			return pStm->ChangeWorkState(S_READY, sERROR);
+
+		break;
+	}
+	case sEND:
+	{
+		std::cout << "OnyxAnt::ExecCycle : End\n";
+		return pStm->ChangeWorkState(S_READY);
+	}
+	case sERROR:
+	{
+		std::cout << "OnyxAnt::ExecCycle : Error!\n";
+		return pStm->ChangeWorkState(S_ERROR);
+	}
+	}
 
 	return S_BUSY;
 }

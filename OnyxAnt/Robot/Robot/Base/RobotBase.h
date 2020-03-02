@@ -24,20 +24,22 @@
 
 enum ROBOTTYPE
 {
-	  TYPE_DIFFERENTIAL
-	, TYPE_ACKERMANN
-	, TYPE_2_LEGS
-	, TYPE_4_LEGS
-	, TYPE_6_LEGS
+	TYPE_DIFFERENTIAL,
+	TYPE_ACKERMANN,
+	TYPE_2_LEGS,
+	TYPE_4_LEGS,
+	TYPE_6_LEGS
 };
 
 enum ROBOTSTATUS
 {
-	  STATUS_SLEEPING
-	, STATUS_BOOTING
-	, STATUS_IDLE
-	, STATUS_ERROR
-	, STATUS_SHUTDOWN
+	ROBOTSTATUS_SLEEPING,
+	ROBOTSTATUS_BOOTING,
+	ROBOTSTATUS_INITIALIZE,
+	ROBOTSTATUS_IDLE,
+	ROBOTSTATUS_RUNNING,
+	ROBOTSTATUS_ERROR,
+	ROBOTSTATUS_SHUTDOWN
 };
 
 class RobotBase
@@ -60,10 +62,18 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
-	virtual STMRESULT			ExecStart() = 0;
-	virtual STMRESULT			ExecCycle() = 0;
-	virtual STMRESULT			ExecInit() = 0;
-	virtual STMRESULT			ExecShutdown() = 0;
+	virtual STMRESULT			ExecStart();
+	virtual STMRESULT			ExecCycle();
+	virtual STMRESULT			ExecInit();
+	virtual STMRESULT			ExecShutdown();
+
+	virtual bool				IsInitialized() { return m_bIsInitialized; }
+	bool						IsInitializing() { return m_eStatus == ROBOTSTATUS_INITIALIZE; }
+	bool						IsIdle() { return m_eStatus == ROBOTSTATUS_IDLE; }
+	bool						IsRunning() { return m_eStatus == ROBOTSTATUS_RUNNING; }
+	bool						HasError() { return m_eStatus == ROBOTSTATUS_ERROR; }
+	bool						IsShuttingDown() { return m_eStatus == ROBOTSTATUS_SHUTDOWN; }
+
 
 ////////////////////////////////////////////
 // attributes
@@ -71,6 +81,8 @@ public:
 protected:
 	ROBOTTYPE			m_eRobotType;
 	ROBOTSTATUS			m_eStatus;
+	bool				m_bIsInitialized;
+
 
 ////////////////////////////////////////////
 // STM

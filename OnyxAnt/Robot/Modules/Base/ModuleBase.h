@@ -10,6 +10,7 @@
 
 
 #include <ElementBase/ElementBase.h>
+#include <Base/UnitBase.h>
 
 
 class ModuleBase : public ElementBase
@@ -39,4 +40,11 @@ public:
 // STM
 ////////////////////////////////////////////
 protected:
+
+
+////////////////////////////////////////////
+// attributes
+////////////////////////////////////////////
+private:
+	vector<UnitBase*>       m_Units;
 };

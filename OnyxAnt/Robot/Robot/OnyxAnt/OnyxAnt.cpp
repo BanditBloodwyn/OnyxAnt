@@ -24,7 +24,7 @@ OnyxAnt::OnyxAnt()
 	m_pSensoricsModule = new SensoricsModule("SensoricsModule");
 
 	m_eRobotType = TYPE_6_LEGS;
-	m_eStatus = STATUS_BOOTING;
+	m_eStatus = ROBOTSTATUS_BOOTING;
 }
 
 OnyxAnt::~OnyxAnt()
@@ -39,7 +39,8 @@ STMRESULT OnyxAnt::ExecInit()
 		return S_ERROR;
 	}
 
-	m_eStatus = STATUS_IDLE;
+	m_eStatus = ROBOTSTATUS_IDLE;
+	m_bIsInitialized = true;
 
 	return S_READY;
 }
@@ -63,7 +64,7 @@ STMRESULT OnyxAnt::ExecStart()
 	case sSTART:
 	{
 		std::cout << "Hello, I'm the OnyxAnt! :)\n";
-		return pStm->ChangeWorkState(S_READY, sINIT);
+		return pStm->ChangeWorkState(RobotBase::ExecStart(), sINIT);
 	}
 	case sINIT:
 	{
@@ -109,7 +110,7 @@ STMRESULT OnyxAnt::ExecCycle()
 	case sSTART:
 	{
 		std::cout << "OnyxAnt::ExecCycle : Start\n";		
-		return pStm->ChangeWorkState(S_READY, sTESTCYCLE);
+		return pStm->ChangeWorkState(RobotBase::ExecCycle(), sTESTCYCLE);
 	}
 	case sTESTCYCLE:
 	{

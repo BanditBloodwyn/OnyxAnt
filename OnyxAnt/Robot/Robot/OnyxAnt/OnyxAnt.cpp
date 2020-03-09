@@ -16,6 +16,7 @@ OnyxAnt::OnyxAnt()
 	std::cout << "Booting......\n";
 
 	STM_CREATE(ExecStart);
+	STM_CREATE(ExecInit);
 	STM_CREATE(ExecCycle);
 	STM_CREATE(ExecShutdown);
 	STM_CREATE(ExecMoveLegsToSleepPosition);
@@ -33,10 +34,40 @@ OnyxAnt::~OnyxAnt()
 
 STMRESULT OnyxAnt::ExecInit()
 {
-	if (!m_oSPIInterface.spiInit())
+	enum
 	{
-		std::cout << "OnyxAnt::Init failed!\n";
-		return S_ERROR;
+		sSTART = S_START,
+		sINITSPI,
+		sEND,
+		sERROR
+	};
+
+	Stm* pStm = STM(ExecInit);
+
+	switch (pStm->GetWorkState())
+	{
+	case sSTART:
+	{
+		std::cout << "OnyxAnt::ExecInit : Start\n";
+		return pStm->ChangeWorkState(RobotBase::ExecInit(), sINITSPI);
+	}
+	case sINITSPI:
+	{
+		if (m_oSPIInterface.spiInit())
+			return pStm->ChangeWorkState(S_READY, sEND);
+		else
+			return pStm->ChangeWorkState(S_READY, sERROR);
+	}
+	case sEND:
+	{
+		std::cout << "OnyxAnt::ExecInit : End\n";
+		return pStm->ChangeWorkState(S_READY);
+	}
+	case sERROR:
+	{
+		std::cout << "OnyxAnt::ExecInit : Error!\n";
+		return pStm->ChangeWorkState(S_ERROR);
+	}
 	}
 
 	m_eStatus = ROBOTSTATUS_IDLE;

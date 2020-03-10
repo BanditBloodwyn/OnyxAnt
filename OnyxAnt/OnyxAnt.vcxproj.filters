@@ -40,6 +40,9 @@
     <ClCompile Include="Robot\Modules\SensoricsModule\SensoricsModule.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="FrameWork\Connection\SPI\bcm2835.c">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
@@ -87,6 +90,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Robot\Modules\SensoricsModule\SensoricsModule.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameWork\Connection\SPI\bcm2835.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

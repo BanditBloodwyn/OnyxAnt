@@ -75,6 +75,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClCompile Include="FrameWork\Connection\SPI\bcm2835.c" />
     <ClCompile Include="FrameWork\Connection\SPI\OnyxSPI.cpp" />
     <ClCompile Include="FrameWork\Connection\SPI\SPIVar.cpp" />
     <ClCompile Include="FrameWork\ElementBase\ElementBase.cpp" />
@@ -90,6 +91,7 @@
     <ClCompile Include="Robot\Units\Leg\OnyxLeg\OnyxLeg.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FrameWork\Connection\SPI\bcm2835.h" />
     <ClInclude Include="FrameWork\Connection\SPI\OnyxSPI.h" />
     <ClInclude Include="FrameWork\Connection\SPI\SPIBase.h" />
     <ClInclude Include="FrameWork\Connection\SPI\SPIVar.h" />

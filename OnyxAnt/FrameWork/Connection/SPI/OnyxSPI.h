@@ -11,6 +11,7 @@
 
 #include <iostream>
 
+#include "bcm2835.h"
 #include "SPIBase.h"
 #include "SPIVar.h"
 
@@ -36,7 +37,7 @@ public:
 ////////////////////////////////////////////
 public:
 	bool				spiInit();
-	int					spiTranceive(int nData);
+	int					spiTranceive(uint8_t nDataToSend);
 
 ////////////////////////////////////////////
 // attributes

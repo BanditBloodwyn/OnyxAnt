@@ -29,8 +29,8 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
-	virtual bool		spiInit() = 0;					// Initialize SPI interface
-	virtual int			spiTranceive(int nData) = 0;	// Tranceive data (INPUTS: data to send ; OUTPUTS: data to receive)
+	virtual bool		spiInit() = 0;							// Initialize SPI interface
+	virtual int			spiTranceive(uint8_t nDataToSend) = 0;	// Tranceive data (INPUTS: data to send ; OUTPUTS: data to receive)
 
 
 ////////////////////////////////////////////

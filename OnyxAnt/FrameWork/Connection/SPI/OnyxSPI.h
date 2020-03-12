@@ -10,10 +10,12 @@
 
 
 #include <iostream>
+#include <vector>
 
 #include "bcm2835.h"
 #include "SPIBase.h"
 #include "SPIVar.h"
+#include <STM/STM.h>
 
 
 class OnyxSPI : public SPIBase
@@ -36,12 +38,17 @@ public:
 // methods
 ////////////////////////////////////////////
 public:
-	bool				spiInit();
-	int					spiTranceive(uint8_t nDataToSend);
+	bool						spiInit();
+	int							spiTranceive(uint8_t nDataToSend);
+
+	STMRESULT					Control();
+
+	bool						RegisterSPIVar(uint8_t& rTheVariable, string sName);
+
 
 ////////////////////////////////////////////
 // attributes
 ////////////////////////////////////////////
 protected:
-
+	vector<SPIVar*>				m_vSPIVars;
 };

@@ -75,3 +75,22 @@ int OnyxSPI::spiTranceive(uint8_t nDataToSend)
 	uint16_t nData = bcm2835_spi_transfer(nDataToSend);
 	return nData;
 }
+
+STMRESULT OnyxSPI::Control()
+{
+	for (auto it : m_vSPIVars)
+	{
+		it->Check();
+	}
+
+	return S_READY;
+}
+
+bool OnyxSPI::RegisterSPIVar(uint8_t& rTheVariable, string sName)
+{
+	SPIVar* pVar = new SPIVar(rTheVariable, sName, this);
+	m_vSPIVars.push_back(pVar);
+
+	return true;
+}
+

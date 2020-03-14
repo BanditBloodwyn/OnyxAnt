@@ -13,10 +13,11 @@
 
 
 
-SPIVar::SPIVar(uint8_t rVar, string sName, SPIBase* oInterface)
+SPIVar::SPIVar(uint8_t &rVar, string sName, SPIBase* oInterface)
 {
-	m_lVar = rVar;
+	m_lVar = &rVar;
 	m_pParentInterface = oInterface;
+	m_sName = sName;
 }
 
 SPIVar::~SPIVar()
@@ -26,10 +27,11 @@ SPIVar::~SPIVar()
 
 bool SPIVar::Check()
 {
-	if (m_lVar != m_lOldValue)
+	if (*m_lVar != m_lOldValue)
 	{
-		cout << "Value changed to " << m_lVar;
-		m_pParentInterface->spiTranceive(m_lVar);
+		printf("Value changed to %08X\n", *m_lVar);
+		m_pParentInterface->spiTranceive(*m_lVar);
+		m_lOldValue = *m_lVar;
 	}
 
 	return true;

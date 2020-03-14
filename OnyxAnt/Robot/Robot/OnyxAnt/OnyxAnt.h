@@ -21,6 +21,51 @@ class OnyxAnt : public RobotBase
 // structures
 ////////////////////////////////////////////
 public:
+	//! Setup Parameters. To be load from IniFile and Recipe
+	class SETUP_DATA
+	{
+	public:
+		SETUP_DATA()
+		{
+			Reset();
+		}
+		void	Reset()
+		{
+
+		}
+
+	};
+
+	//! Life Params. Reset on Construction
+	class LIFE_PARAMS
+	{
+	public:
+		LIFE_PARAMS()
+		{
+			Reset();
+		}
+		void Reset()
+		{
+			m_lTestVar = 0;
+		}
+
+		uint8_t	m_lTestVar;
+	};
+
+	//! Work Params. Reset on Init
+	class WORK_PARAMS
+	{
+	public:
+		WORK_PARAMS()
+		{
+			Reset();
+		}
+		void Reset()
+		{
+
+		}
+
+	};
 
 
 ////////////////////////////////////////////
@@ -48,6 +93,7 @@ private:
 	STMRESULT			SelfDiagnosis();
 	STMRESULT			SendMoveCommands();
 
+	void				RegisterSPIVars();
 
 ////////////////////////////////////////////
 // attributes
@@ -56,6 +102,11 @@ protected:
 	KinematicsModule*	m_pKinematicsModule;
 	SensoricsModule*	m_pSensoricsModule;
 	OnyxSPI				m_oSPIInterface;
+
+	SETUP_DATA*			m_oSetupData;
+	LIFE_PARAMS*		m_oLifeParams;
+	WORK_PARAMS*		m_oWorkParams;
+
 
 ////////////////////////////////////////////
 // STM

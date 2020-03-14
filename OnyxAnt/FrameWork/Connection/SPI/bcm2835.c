@@ -754,14 +754,16 @@ uint8_t bcm2835_spi_transfer(uint8_t value)
     bcm2835_peri_set_bits(paddr, BCM2835_SPI0_CS_TA, BCM2835_SPI0_CS_TA);
 
     /* Maybe wait for TXD */
-    while (!(bcm2835_peri_read(paddr) & BCM2835_SPI0_CS_TXD))
+	if (!debug)
+		while (!(bcm2835_peri_read(paddr) & BCM2835_SPI0_CS_TXD))
         ;
 
     /* Write to FIFO, no barrier */
     bcm2835_peri_write_nb(fifo, bcm2835_correct_order(value));
 
     /* Wait for DONE to be set */
-    while (!(bcm2835_peri_read_nb(paddr) & BCM2835_SPI0_CS_DONE))
+	if (!debug)
+		while (!(bcm2835_peri_read_nb(paddr) & BCM2835_SPI0_CS_DONE))
         ;
 
     /* Read any byte that was sent back by the slave while we sere sending to it */

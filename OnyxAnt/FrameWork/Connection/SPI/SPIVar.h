@@ -27,7 +27,7 @@ public:
 // construction
 ////////////////////////////////////////////
 public:
-	SPIVar(uint8_t rVar, string sName, SPIBase* oInterface);
+	SPIVar(uint8_t &rVar, string sName, SPIBase* oInterface);
 	~SPIVar();
 
 
@@ -42,7 +42,7 @@ public:
 // attributes
 ////////////////////////////////////////////
 protected:
-	uint8_t				m_lVar;			// points to the variable to check/update
+	uint8_t*			m_lVar;			// points to the variable to check/update
 	uint8_t				m_lOldValue;		// value to compare to
 
 	string				m_sName;

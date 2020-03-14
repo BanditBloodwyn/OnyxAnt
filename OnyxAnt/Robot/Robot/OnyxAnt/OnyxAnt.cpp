@@ -21,10 +21,17 @@ OnyxAnt::OnyxAnt()
 	STM_CREATE(ExecShutdown);
 	STM_CREATE(ExecMoveLegsToSleepPosition);
 
+	m_oSetupData = new SETUP_DATA();
+	m_oLifeParams = new LIFE_PARAMS();
+	m_oWorkParams = new WORK_PARAMS();
+
 	m_pKinematicsModule = new KinematicsModule("KinematicsModule");
 	m_pSensoricsModule = new SensoricsModule("SensoricsModule");
 
 	m_eRobotType = TYPE_6_LEGS;
+
+	RegisterSPIVars();
+
 	m_eStatus = ROBOTSTATUS_BOOTING;
 }
 
@@ -129,6 +136,7 @@ STMRESULT OnyxAnt::ExecCycle()
 	enum
 	{
 		sSTART = S_START,
+		sPROCESSSPI,
 		sTESTCYCLE,
 		sEND,
 		sERROR
@@ -141,7 +149,11 @@ STMRESULT OnyxAnt::ExecCycle()
 	case sSTART:
 	{
 		std::cout << "OnyxAnt::ExecCycle : Start\n";		
-		return pStm->ChangeWorkState(RobotBase::ExecCycle(), sTESTCYCLE);
+		return pStm->ChangeWorkState(RobotBase::ExecCycle(), sPROCESSSPI);
+	}
+	case sPROCESSSPI:
+	{
+		return pStm->ChangeWorkState(m_oSPIInterface.Control(), sTESTCYCLE);
 	}
 	case sTESTCYCLE:
 	{
@@ -150,10 +162,12 @@ STMRESULT OnyxAnt::ExecCycle()
 
 		if (x == 0)
 			return pStm->ChangeWorkState(S_READY, sEND);
+		if (x == 1)
+			m_oLifeParams->m_lTestVar++;
 		if (x == 5)
 			return pStm->ChangeWorkState(S_READY, sERROR);
 
-		break;
+		return pStm->ChangeWorkState(S_READY, sPROCESSSPI);
 	}
 	case sEND:
 	{
@@ -199,4 +213,9 @@ STMRESULT OnyxAnt::SelfDiagnosis()
 STMRESULT OnyxAnt::SendMoveCommands()
 {
 	return S_READY;
+}
+
+void OnyxAnt::RegisterSPIVars()
+{
+	m_oSPIInterface.RegisterSPIVar(m_oLifeParams->m_lTestVar, "TestVar");
 }

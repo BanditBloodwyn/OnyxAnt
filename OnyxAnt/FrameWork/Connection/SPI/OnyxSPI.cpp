@@ -26,10 +26,16 @@ bool OnyxSPI::spiInit()
 #endif // !NDEBUG
 	
 	if (!bcm2835_init())         // initialize library
+	{
+		std::cout << "OnyxSPI::spiInit : bcm2835_init failed!\n";
 		return false;
+	}
 
 	if (!bcm2835_spi_begin())        // start SPI library, Setup SPI pins
+	{
+		std::cout << "OnyxSPI::spiInit : bcm2835_spi_begin failed!\n";
 		return false;
+	}
 
 	//Set CS pins polarity to low
 	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, 0);
@@ -73,6 +79,7 @@ bool OnyxSPI::spiInit()
 int OnyxSPI::spiTranceive(uint8_t nDataToSend)
 {
 	uint16_t nData = bcm2835_spi_transfer(nDataToSend);
+	printf("OnyxSPI::spiTranceive,\tSent: %08X, Received data: %08X\n", nDataToSend, nData);
 	return nData;
 }
 
